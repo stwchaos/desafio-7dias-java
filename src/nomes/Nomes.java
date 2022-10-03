@@ -28,7 +28,7 @@ public class Nomes {
 		for (int i = 0; i < 3; i++) {
 			System.out.println("digite um nome");
 			nome = readT.nextLine();
-			System.out.println("o numero digitado foi: " + nome);
+			System.out.println("o nome digitado foi: " + nome);
 		}
 	}
 
