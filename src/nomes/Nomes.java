@@ -18,7 +18,6 @@ public class Nomes {
 
 	/**
 	 * Ler 3 nomes (digitados pelo usuário) e exibir no console todos eles
-	 * 
 	 * @param nomes
 	 */
 

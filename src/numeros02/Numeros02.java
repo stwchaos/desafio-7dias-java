@@ -1,12 +1,12 @@
 package numeros02;
 
-import java.util.Scanner;
-
 /**
  * @author Sam Pfleger Mendes
  * @date 05/10/2022
  * 
  */
+
+import java.util.Scanner;
 
 public class Numeros02 {
 	public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class Numeros02 {
 	 * Ler 6 números (digitados pelo usuário) e armazenar em um vetor. Você deve
 	 * verificar qual o menor número e qual o maior número armazenados no vetor
 	 * 
-	 * @param maxmin
+	 * @param calc
 	 */
 
 	public static void calc(Integer calc) {

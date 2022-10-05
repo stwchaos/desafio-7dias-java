@@ -19,7 +19,6 @@ public class Numeros {
 	/**
 	 * Ler 3 números (digitados pelo usuário) e armazenar em um vetor. Em seguida,
 	 * exiba no console todos os números armazenados.
-	 * 
 	 * @param calc
 	 */
 
