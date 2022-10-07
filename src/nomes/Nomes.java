@@ -22,10 +22,12 @@ public class Nomes {
 	 */
 
 	public static void nomes(String nomes) {
+		String[] vetor = new String[3];
 		Scanner readT = new Scanner(System.in);
-		String nome;
+		String nome = null;
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < vetor.length; i++) {
+			nome = vetor[i];
 			System.out.println("digite um nome");
 			nome = readT.nextLine();
 			System.out.println("o nome digitado foi: " + nome);
