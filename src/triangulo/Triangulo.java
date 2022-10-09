@@ -1,5 +1,12 @@
 package triangulo;
 
+/**
+ * 
+ * @author Sam Pfleger Mendes
+ * @date 08/10/2022
+ * 
+ */
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
