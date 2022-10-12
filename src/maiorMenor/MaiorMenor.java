@@ -18,14 +18,25 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.JDesktopPane;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
 
 public class MaiorMenor extends JFrame {
 
-	private JPanel num;
-	private JTextField textField;
+	private JPanel nEntrada;
 	private JTextField textField_1;
-	private JTextField nume;
+	private JTextField txtEntrada;
+	private JTextField txtMaior;
+	private JTextField txtMenor;
+	ArrayList<Double> cadastro = new ArrayList();
 
 	/**
 	 * Launch the application.
@@ -47,71 +58,98 @@ public class MaiorMenor extends JFrame {
 	 * Create the frame.
 	 */
 	public MaiorMenor() {
+		setBackground(new Color(81, 66, 201));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 346, 228);
-		num = new JPanel();
-		num.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setBounds(100, 100, 509, 326);
+		nEntrada = new JPanel();
+		nEntrada.setBackground(new Color(255, 255, 255));
+		nEntrada.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(num);
-		num.setLayout(null);
+		setContentPane(nEntrada);
+		nEntrada.setLayout(null);
 
-		nume = new JTextField();
-		nume.setBounds(104, 16, 114, 19);
-		num.add(nume);
-		nume.setColumns(10);
+		txtEntrada = new JTextField();
+		txtEntrada.setHorizontalAlignment(SwingConstants.CENTER);
+		txtEntrada.setForeground(new Color(153, 193, 241));
+		txtEntrada.setBackground(new Color(0, 0, 0));
+		txtEntrada.setBounds(80, 43, 114, 19);
+		nEntrada.add(txtEntrada);
+		txtEntrada.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setBounds(104, 47, 114, 19);
-		num.add(textField_1);
-		textField_1.setColumns(10);
-
-		JButton exibir = new JButton("Exibir");
-		exibir.addActionListener(new ActionListener() {
+		JButton btnExibir = new JButton("EXIBIR");
+		btnExibir.setForeground(new Color(255, 255, 255));
+		btnExibir.setBackground(new Color(81, 66, 201));
+		btnExibir.setFont(new Font("URW Palladio L", Font.BOLD, 16));
+		btnExibir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Double maior = Double.MAX_VALUE;
-				Double menor = Double.MIN_VALUE;
-				
-			}
-		});
-		exibir.setBounds(104, 154, 108, 25);
-		num.add(exibir);
+				Double maior = Double.MIN_VALUE;
+				Double menor = Double.MAX_VALUE;
 
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(104, 77, 114, 19);
-		num.add(textField);
-		textField.setColumns(10);
-
-		JButton Cadastrar = new JButton("Cadastrar");
-		Cadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				String i = nume.getText();
-		
-					Integer x = Integer .valueOf(i);
-					
-					Double[] cad = new Double[x];
-					
-					for (Double double1 : cad) {
-						
-						JOptionPane.showInputDialog( "Escreva um numero: "+cad,null);
-						
+				for (int i = 0; i < cadastro.size(); i++) {
+					if (maior < cadastro.get(i)) {
+						maior = cadastro.get(i);
+						txtMaior.setText(String.valueOf(maior));
+					} else if (menor > cadastro.get(i)) {
+						menor = cadastro.get(i);
+						txtMenor.setText(String.valueOf(menor));
 					}
-				
-				
+				}
 			}
 		});
-		Cadastrar.setBounds(104, 117, 108, 25);
-		num.add(Cadastrar);
+		btnExibir.setBounds(194, 218, 108, 25);
+		nEntrada.add(btnExibir);
 
-		JLabel lblNewLabel = new JLabel("Maior");
-		lblNewLabel.setBounds(35, 47, 70, 15);
-		num.add(lblNewLabel);
+		JButton btnCadastrar = new JButton("CADASTRAR");
+		btnCadastrar.setForeground(new Color(255, 255, 255));
+		btnCadastrar.setBackground(new Color(81, 66, 201));
+		btnCadastrar.setFont(new Font("URW Palladio L", Font.BOLD, 16));
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cadastro.add(Double.valueOf(txtEntrada.getText()));
+			}
+		});
+		btnCadastrar.setBounds(229, 39, 150, 25);
+		nEntrada.add(btnCadastrar);
 
-		JLabel lblMenor = new JLabel("Menor");
-		lblMenor.setBounds(35, 79, 70, 15);
-		num.add(lblMenor);
+		JLabel lblInfoTwo = new JLabel("Maior");
+		lblInfoTwo.setFont(new Font("Nimbus Mono L", Font.BOLD, 16));
+		lblInfoTwo.setBounds(107, 156, 70, 15);
+		nEntrada.add(lblInfoTwo);
+
+		JLabel lblInfoThree = new JLabel("Menor");
+		lblInfoThree.setFont(new Font("Nimbus Mono L", Font.BOLD, 16));
+		lblInfoThree.setBounds(335, 156, 70, 15);
+		nEntrada.add(lblInfoThree);
+
+		txtMaior = new JTextField();
+		txtMaior.setHorizontalAlignment(SwingConstants.CENTER);
+		txtMaior.setForeground(new Color(153, 193, 241));
+		txtMaior.setBackground(new Color(0, 0, 0));
+		lblInfoTwo.setLabelFor(txtMaior);
+		txtMaior.setEditable(false);
+		txtMaior.setColumns(10);
+		txtMaior.setBounds(80, 183, 114, 19);
+		nEntrada.add(txtMaior);
+
+		txtMenor = new JTextField();
+		txtMenor.setHorizontalAlignment(SwingConstants.CENTER);
+		txtMenor.setForeground(new Color(153, 193, 241));
+		txtMenor.setBackground(new Color(0, 0, 0));
+		lblInfoThree.setLabelFor(txtMenor);
+		txtMenor.setEditable(false);
+		txtMenor.setColumns(10);
+		txtMenor.setBounds(305, 183, 114, 19);
+		nEntrada.add(txtMenor);
+
+		JLabel lblInfoOne = new JLabel("Cadastre diversos números: ");
+		lblInfoOne.setLabelFor(txtEntrada);
+		lblInfoOne.setFont(new Font("Nimbus Mono L", Font.BOLD, 16));
+		lblInfoOne.setBounds(112, 12, 325, 15);
+		nEntrada.add(lblInfoOne);
+
+		JLabel lblCatIcon = new JLabel("");
+		lblCatIcon.setIcon(new ImageIcon(MaiorMenor.class.getResource("/maiorMenor/catIcon.png")));
+		lblCatIcon.setBounds(78, 12, 359, 280);
+		nEntrada.add(lblCatIcon);
 	}
 }
